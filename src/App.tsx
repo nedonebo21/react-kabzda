@@ -16,10 +16,12 @@ function App() {
         <div>
             <PageTitle title={"this is APP component"}/>
             <PageTitle title={"My Friends"}/>
+
             Article 1
             <Rating value={3}/>
             <Accordion titleValue={"Меню навигации"} collapsed={true}/>
             <Accordion titleValue={"Меню поиска"} collapsed={false}/>
+
             Article 2
             <Rating value={0}/>
             <Rating value={1}/>
