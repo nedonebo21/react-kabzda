@@ -5,6 +5,7 @@ import Accordion from "./components/Accordion/Accordion.tsx";
 import {Rating} from "./components/Rating/Rating.tsx";
 
 import {Button} from "./components/Button/Button.tsx";
+import {OnOff} from "./components/OnOff/OnOff.tsx";
 
 //function declaration(Components)
 function App() {
@@ -16,6 +17,8 @@ function App() {
         <div>
             <PageTitle title={"this is APP component"}/>
             <PageTitle title={"My Friends"}/>
+
+            <OnOff type={false}/>
 
             Article 1
             <Rating value={3}/>
@@ -33,6 +36,8 @@ function App() {
             <Button kind={1} style={{ backgroundColor: 'white' }}/>
             <Button kind={2} style={{ backgroundColor: 'blue' }}/>
             <Button kind={3} style={{ backgroundColor: 'red' }}/>
+
+
         </div>
     )
 }
