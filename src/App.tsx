@@ -18,7 +18,10 @@ function App() {
             <PageTitle title={"this is APP component"}/>
             <PageTitle title={"My Friends"}/>
 
-            <OnOff type={false}/>
+            <OnOff/>
+            <OnOff/>
+            <OnOff/>
+            {/*<OnOff type={false}/>*/}
 
             Article 1
             <Rating value={3}/>
