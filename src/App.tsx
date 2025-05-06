@@ -1,11 +1,12 @@
 // import {useState} from 'react'
 
 import './App.css'
-import Accordion from "./components/Accordion/Accordion.tsx";
-import {Rating} from "./components/Rating/Rating.tsx";
-
-import {Button} from "./components/Button/Button.tsx";
+// import Accordion from "./components/Accordion/Accordion.tsx";
+// import {Rating} from "./components/Rating/Rating.tsx";
+//
+// import {Button} from "./components/Button/Button.tsx";
 import {OnOff} from "./components/OnOff/OnOff.tsx";
+import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion.tsx";
 
 //function declaration(Components)
 function App() {
@@ -19,26 +20,8 @@ function App() {
             <PageTitle title={"My Friends"}/>
 
             <OnOff/>
-            <OnOff/>
-            <OnOff/>
-            {/*<OnOff type={false}/>*/}
 
-            Article 1
-            <Rating value={3}/>
-            <Accordion titleValue={"Меню навигации"} collapsed={true}/>
-            <Accordion titleValue={"Меню поиска"} collapsed={false}/>
-
-            Article 2
-            <Rating value={0}/>
-            <Rating value={1}/>
-            <Rating value={2}/>
-            <Rating value={3}/>
-            <Rating value={4}/>
-            <Rating value={5}/>
-
-            <Button kind={1} style={{ backgroundColor: 'white' }}/>
-            <Button kind={2} style={{ backgroundColor: 'blue' }}/>
-            <Button kind={3} style={{ backgroundColor: 'red' }}/>
+            <UncontrolledAccordion titleValue={"Меню"}/>
 
 
         </div>
