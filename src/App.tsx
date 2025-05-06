@@ -10,15 +10,15 @@ import {UncontrolledAccordion} from "./components/UncontrolledAccordion/Uncontro
 import { UncontrolledRating } from './components/UncontrolledRating/UncontrolledRating.tsx';
 
 //function declaration(Components)
-function App() {
+export const App = () => {
     console.log("App rendering")
 
     //полезное что-то
     //обязана вернуть jsx (фактически html(для глаз))
     return (
         <div>
-            <PageTitle title={"this is APP component"}/>
-            <PageTitle title={"My Friends"}/>
+            {/*<PageTitle title={"this is APP component"}/>*/}
+            {/*<PageTitle title={"My Friends"}/>*/}
 
             <OnOff/>
 
@@ -31,16 +31,15 @@ function App() {
     )
 }
 
-type PageTitlePropsType = {
-    title: string,
-}
-function PageTitle(props: PageTitlePropsType) {
-    console.log("AppTitle rendering")
-    return(
-        <h1>
-            { props.title }
-        </h1>
-    )
-}
-
-export default App
+// type PageTitlePropsType = {
+//     title: string,
+// }
+// function PageTitle(props: PageTitlePropsType) {
+//     console.log("AppTitle rendering")
+//     return(
+//         <h1>
+//             { props.title }
+//         </h1>
+//     )
+// }
+//
