@@ -7,6 +7,7 @@ import './App.css'
 // import {Button} from "./components/Button/Button.tsx";
 import {OnOff} from "./components/OnOff/OnOff.tsx";
 import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion.tsx";
+import { UncontrolledRating } from './components/UncontrolledRating/UncontrolledRating.tsx';
 
 //function declaration(Components)
 function App() {
@@ -22,6 +23,8 @@ function App() {
             <OnOff/>
 
             <UncontrolledAccordion titleValue={"Меню"}/>
+
+            <UncontrolledRating/>
 
 
         </div>
