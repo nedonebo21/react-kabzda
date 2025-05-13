@@ -11,6 +11,7 @@ import {useState} from "react";
 export const App = () => {
     console.log("App rendering")
     const [ratingValue, setRatingValue] = useState<RatingValueType>(0);
+    const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false);
 
     return (
         <div>
@@ -21,7 +22,9 @@ export const App = () => {
 
             <Rating value={ratingValue}
                     onClick={setRatingValue}/>
-            <Accordion collapsed={false} titleValue={"Йоу"}/>
+            <Accordion collapsed={accordionCollapsed}
+                       onClick={setAccordionCollapsed}
+                       titleValue={"Йоу"}/>
 
         </div>
     )
