@@ -6,7 +6,7 @@ import {UncontrolledOnOff} from "./components/UncontrolledOnOff/UncontrolledOnOf
 import {Rating, RatingValueType} from "./components/Rating/Rating.tsx";
 import {Accordion} from "./components/Accordion/Accordion.tsx";
 import {useState} from "react";
-import {OnOff} from "./components/OnOff/OnOff.tsx";
+// import {OnOff} from "./components/OnOff/OnOff.tsx";
 import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating.tsx";
 import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion.tsx";
 
@@ -19,11 +19,11 @@ export const App = () => {
 
     return (
         <div>
-            <UncontrolledOnOff/>
+            <UncontrolledOnOff onChange={setType}/> {type.toString()}
             <UncontrolledRating/>
             <UncontrolledAccordion titleValue={"Йоу"}/>
 
-            <OnOff type={type} onClick={setType}/>
+            {/*<OnOff type={type} onClick={setType}/>*/}
             <Rating value={ratingValue} onClick={setRatingValue}/>
             <Accordion collapsed={accordionCollapsed} onClick={setAccordionCollapsed} titleValue={"Йоу"}/>
         </div>

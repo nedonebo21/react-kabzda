@@ -2,7 +2,10 @@
 import './OnOff.css'
 import {useState} from "react";
 
-export const UncontrolledOnOff = () => {
+type PropsType = {
+    onChange: (type: boolean) => void
+}
+export const UncontrolledOnOff = (props: PropsType) => {
 
     const [type, setType] = useState<boolean>(false)
 
@@ -31,8 +34,14 @@ export const UncontrolledOnOff = () => {
         backgroundColor: type ? "green" : "red",
     }
 
-    const clickOffHandler = () => setType(false)
-    const clickOnHandler = () => setType(true)
+    const clickOffHandler = () => {
+        setType(false)
+        props.onChange(false)
+    }
+    const clickOnHandler = () => {
+        setType(true)
+        props.onChange(true)
+    }
 
     return (
         <div style={{display: "flex", alignItems: "center"}}>
