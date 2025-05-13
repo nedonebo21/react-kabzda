@@ -1,20 +1,17 @@
 // import {useState} from 'react'
 
 import './App.css'
-// import Accordion from "./components/Accordion/Accordion.tsx";
-// import {Rating} from "./components/Rating/Rating.tsx";
-//
 // import {Button} from "./components/Button/Button.tsx";
 import {OnOff} from "./components/OnOff/OnOff.tsx";
-import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion.tsx";
-import { UncontrolledRating } from './components/UncontrolledRating/UncontrolledRating.tsx';
+import {Rating, RatingValueType} from "./components/Rating/Rating.tsx";
+import {Accordion} from "./components/Accordion/Accordion.tsx";
+import {useState} from "react";
 
 //function declaration(Components)
 export const App = () => {
     console.log("App rendering")
+    const [ratingValue, setRatingValue] = useState<RatingValueType>(0);
 
-    //полезное что-то
-    //обязана вернуть jsx (фактически html(для глаз))
     return (
         <div>
             {/*<PageTitle title={"this is APP component"}/>*/}
@@ -22,10 +19,9 @@ export const App = () => {
 
             <OnOff/>
 
-            <UncontrolledAccordion titleValue={"Меню"}/>
-
-            <UncontrolledRating/>
-
+            <Rating value={ratingValue}
+                    onClick={setRatingValue}/>
+            <Accordion collapsed={false} titleValue={"Йоу"}/>
 
         </div>
     )
