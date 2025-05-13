@@ -24,14 +24,14 @@ type AccordionTitlePropsType = {
 const AccordionTitle = (props: AccordionTitlePropsType) => {
     console.log("AccordionTitle rendering")
     return (
-        <h3 style={{
-            cursor: "pointer"
-        }}
-            onClick={() => {props.onClick(!props.collapsed)}}>-- {props.title} --</h3>
+        <h3 style={{cursor: "pointer"}}
+            onClick={() => {
+                props.onClick(!props.collapsed)
+            }}>-- {props.title} --</h3>
     )
 }
 
-const AccordionBody =() => {
+const AccordionBody = () => {
     console.log("AccordionBody rendering")
     return (
         <ul>
