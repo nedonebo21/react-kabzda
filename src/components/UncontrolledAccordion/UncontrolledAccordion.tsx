@@ -8,8 +8,7 @@ export const UncontrolledAccordion = (props: PropsType) => {
 
     const [collapsed, setCollapsed] = useState<boolean>(false)
 
-    const clickCollapsedHandler = () => !collapsed ? setCollapsed(true)
-        : setCollapsed(!collapsed)
+    const clickCollapsedHandler = () => setCollapsed(!collapsed)
 
     return (
         <div>
@@ -18,6 +17,7 @@ export const UncontrolledAccordion = (props: PropsType) => {
         </div>
     );
 };
+
 type AccordionTitlePropsType = {
     title: string,
     onClick: () => void
