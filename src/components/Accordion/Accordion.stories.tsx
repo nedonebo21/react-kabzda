@@ -5,6 +5,7 @@ import {useState} from "react";
 
 export default  {
     component: Accordion,
+    title: "Accordion Stories",
     parameters: {
         backgrounds: {
             default: 'dark',
@@ -12,21 +13,21 @@ export default  {
     },
 };
 
-const handleCollapsed = action('onClickCollapsed')
+const handleClick = action('accordion mode change')
 
-export const CollapsedAccordion = () => {
+export const MenuCollapsedMode = () => {
     return (
-        <Accordion collapsed={true} onClick={handleCollapsed} titleValue={"Collapsed Accordion"}/>
+        <Accordion collapsed={true} onClick={handleClick} titleValue={"Menu"}/>
     )
 }
-export const OpenedAccordion = () => {
+export const UsersUncollapsedMode = () => {
     return (
-        <Accordion collapsed={false} onClick={() => {}} titleValue={"Opened Accordion"}/>
+        <Accordion collapsed={false} onClick={handleClick} titleValue={"Users"}/>
     )
 }
-export const FullAccordion = () => {
-    const [collapsed, setCollapsed] = useState(false)
+export const ModeChanging = () => {
+    const [collapsed, setCollapsed] = useState(true)
     return (
-        <Accordion collapsed={collapsed} onClick={() => {setCollapsed(!collapsed)}} titleValue={"Accordion"}/>
+        <Accordion collapsed={collapsed} onClick={setCollapsed} titleValue={"Accordion"}/>
     )
 }
