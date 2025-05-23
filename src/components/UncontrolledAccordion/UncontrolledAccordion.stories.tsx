@@ -1,4 +1,5 @@
 import {UncontrolledAccordion} from './UncontrolledAccordion';
+import {action} from "@storybook/addon-actions";
 // import {useState} from "react";
 
 export default {
@@ -10,9 +11,8 @@ export default {
         },
     },
 };
+const HandleCollapsed = action('on click collapsed/uncollapsed')
 
-export const SelfControlledAccordionMode = () => {
-    return (
-        <UncontrolledAccordion titleValue={"Menu"}/>
-    )
-}
+export const DefaultCollapsedMode = () => <UncontrolledAccordion titleValue={"Menu"} defaultCollapsed={true} onChange={HandleCollapsed}/>
+
+export const DefaultUncollapsedMode = () => <UncontrolledAccordion titleValue={"Menu"} defaultCollapsed={false} onChange={HandleCollapsed}/>

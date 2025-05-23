@@ -2,13 +2,15 @@ import {useState} from "react";
 
 type PropsType = {
     titleValue: string
+    defaultCollapsed?: boolean
+    onChange?: (collapsed: boolean) => void
 }
 
 export const UncontrolledAccordion = (props: PropsType) => {
 
-    const [collapsed, setCollapsed] = useState<boolean>(false)
+    const [collapsed, setCollapsed] = useState<boolean>(props.defaultCollapsed ?? false)
 
-    const clickCollapsedHandler = () => setCollapsed(!collapsed)
+    const clickCollapsedHandler = () => setCollapsed(!collapsed); props.onChange?.(collapsed)
 
     return (
         <div>

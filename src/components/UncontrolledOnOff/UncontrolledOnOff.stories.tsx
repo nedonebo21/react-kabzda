@@ -14,8 +14,5 @@ export default {
 
 const handleModeChange = action('swap on/off mode')
 
-export const SelfControlledOnOffMode = () => {
-    return (
-        <UncontrolledOnOff onChange={handleModeChange}/>
-    )
-}
+export const DefaultOffMode = () => <UncontrolledOnOff onChange={handleModeChange} defaultOn={false}/>
+export const DefaultOnMode = () => <UncontrolledOnOff onChange={handleModeChange} defaultOn={true}/>
