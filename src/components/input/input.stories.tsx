@@ -1,4 +1,5 @@
 import {ChangeEvent, useRef, useState} from "react";
+import {action} from "@storybook/addon-actions";
 
 export default {
     // component: input,
@@ -35,8 +36,44 @@ export const GetValueOfUncontrolledInputOnButtonPress = () => {
 
     return (
         <>
-            <input ref={inputRef}/> <button onClick={handleSave}>save</button> - actual value: {value}
+            <input ref={inputRef}/>
+            <button onClick={handleSave}>save</button>
+            - actual value: {value}
         </>
+    )
+}
+
+export const ControlledInput = () => {
+    const [parentValue, setParentValue] = useState<string>('')
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setParentValue(e.target.value)
+    }
+    return <input value={parentValue} onChange={handleChange}/>
+}
+export const ControlledCheckbox = () => {
+    const [parentValue, setParentValue] = useState<boolean>(true)
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setParentValue(e.target.checked)
+    }
+
+    return <input checked={parentValue} onChange={handleChange} type="checkbox"/>
+}
+export const ControlledSelect = () => {
+    const [parentValue, setParentValue] = useState<string | undefined>(undefined)
+
+    const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
+        setParentValue(e.target.value)
+    }
+
+    return (
+        <select value={parentValue} onChange={handleChange}>
+            <option>none</option>
+            <option value="1">Ulyanovsk</option>
+            <option value="2">Spb</option>
+            <option value="3">Yo</option>
+        </select>
     )
 }
 
