@@ -17,6 +17,7 @@ export const App = () => {
     const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false);
     const [type, setType] = useState<boolean>(false)
 
+
     return (
         <div>
             <UncontrolledOnOff onChange={setType}/> {type.toString()}
@@ -25,7 +26,7 @@ export const App = () => {
 
             {/*<OnOff type={type} onClick={setType}/>*/}
             <Rating value={ratingValue} onClick={setRatingValue}/>
-            <Accordion collapsed={accordionCollapsed} onClick={setAccordionCollapsed} titleValue={"Йоу"}/>
+            <Accordion items={[]} onClick={() => {}} collapsed={accordionCollapsed} onChange={setAccordionCollapsed} titleValue={"Йоу"}/>
         </div>
     )
 }

@@ -14,20 +14,31 @@ export default  {
 };
 
 const handleClick = action('accordion mode change')
+const handleClickCallback = action('some item was clicked')
 
 export const MenuCollapsedMode = () => {
     return (
-        <Accordion collapsed={true} onClick={handleClick} titleValue={"Menu"}/>
+        <Accordion collapsed={true} onClick={handleClickCallback} onChange={handleClick} titleValue={"Menu"} items={[]}/>
     )
 }
 export const UsersUncollapsedMode = () => {
+    const usersArr = [
+        {value: "1", title:'Tolik Shelban'},
+        {value: "2", title:'Tyler Durden'},
+        {value: "3", title:'Ryan Gosling'},
+    ]
     return (
-        <Accordion collapsed={false} onClick={handleClick} titleValue={"Users"}/>
+        <Accordion collapsed={false} onClick={handleClickCallback} onChange={handleClick} titleValue={"Users"} items={usersArr}/>
     )
 }
 export const ModeChanging = () => {
     const [collapsed, setCollapsed] = useState(true)
+    const usersArr = [
+        {value: "1", title:'Tolik Shelban'},
+        {value: "2", title:'Tyler Durden'},
+        {value: "3", title:'Ryan Gosling'},
+    ]
     return (
-        <Accordion collapsed={collapsed} onClick={setCollapsed} titleValue={"Accordion"}/>
+        <Accordion collapsed={collapsed} onClick={handleClickCallback} onChange={setCollapsed} titleValue={"Accordion"} items={usersArr}/>
     )
 }
