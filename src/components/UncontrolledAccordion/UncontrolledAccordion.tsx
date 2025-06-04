@@ -1,4 +1,5 @@
-import {useState} from "react";
+import {useReducer} from "react";
+import {reducer} from "./reducer.ts";
 
 type PropsType = {
     titleValue: string
@@ -8,14 +9,15 @@ type PropsType = {
 
 export const UncontrolledAccordion = (props: PropsType) => {
 
-    const [collapsed, setCollapsed] = useState<boolean>(props.defaultCollapsed ?? false)
+    // const [collapsed, setCollapsed] = useState<boolean>(props.defaultCollapsed ?? false)
+    const [state, dispatch] = useReducer(reducer, {collapsed: false})
 
-    const clickCollapsedHandler = () => setCollapsed(!collapsed); props.onChange?.(collapsed)
-
+    // const clickCollapsedHandler = () => setCollapsed(!collapsed); props.onChange?.(collapsed)
+    const clickCollapsedHandler = () => dispatch({type: 'TOGGLE-COLLAPSED'}); props.onChange?.(state.collapsed)
     return (
         <div>
             <UncontrolledAccordionTitle onClick={clickCollapsedHandler} title={props.titleValue}/>
-            {!collapsed && <UncontrolledAccordionBody/>}
+            {!state.collapsed && <UncontrolledAccordionBody/>}
         </div>
     );
 };
