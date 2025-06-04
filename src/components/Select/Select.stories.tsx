@@ -3,7 +3,7 @@ import s from './Select.module.css'
 
 export default {
     // component: input,
-    title: "Select Stories",
+    title: "Custom Select Stories",
     parameters: {
         backgrounds: {
             default: 'dark',
@@ -16,7 +16,7 @@ type ItemType = {
     title: string
 }
 
-export const Select = () => {
+export const CustomSelect = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
     const [selectedItem, setSelectedItem] = useState<ItemType | null>(null)
     const [items, setItems] = useState<ItemType[]>([
