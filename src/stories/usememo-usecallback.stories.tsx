@@ -1,6 +1,5 @@
-import {KeyboardEvent, useEffect, useMemo, useState} from "react";
+import {KeyboardEvent, useCallback, useEffect, useMemo, useState} from "react";
 import * as React from "react";
-import {NewSelect} from "../components/Select/NewSelect.tsx";
 import s from "../components/Select/NewSelect.module.css";
 
 export default {
@@ -84,6 +83,46 @@ export const HelpForReactMemo = () => {
             <button onClick={addUser}>add user</button>
             {counter}
             <Users users={filteredUsers}/>
+        </>
+    )
+}
+
+type BooksSecretProps = {
+    books: string[]
+    addBook: () => void
+}
+const BooksSecret = (props: BooksSecretProps) => {
+    console.log('books secret')
+    return (
+        <div>
+            <button onClick={props.addBook}>add book</button>
+            {props.books.map((b, i) => <div key={i}>{b}</div>)}
+        </div>
+    )
+}
+
+const Books = React.memo(BooksSecret)
+
+export const LikeUseCallback = () => {
+    console.log('useCallback')
+    const [counter, setCounter] = useState(0)
+    const [books, setBooks] = useState(['React', 'JS', 'CSS', 'HTML'])
+
+    // const memoizedAddBook = useMemo(() => {
+    //     return () => {
+    //         setBooks([...books, 'Angular'])
+    //     }
+    // }, [books])
+
+    const memoizedAddBook = useCallback(() => {
+        setBooks([...books, 'Angular'])
+    }, [books])
+
+    return (
+        <>
+            <button onClick={() => setCounter(counter + 1)}>+</button>
+            {counter}
+            <Books books={books} addBook={memoizedAddBook}/>
         </>
     )
 }
