@@ -57,24 +57,33 @@ export const SetTimeoutExample = () => {
   )
 }
 
-export const ClockExample = () => {
-  const [time, setTime] = useState(new Date())
+export const Clock = () => {
+  const [date, setDate] = useState(new Date())
 
   useEffect(() => {
 
-    setInterval(() => {
-      setTime(new Date())
+    const intervalId = setInterval(() => {
+      // console.log('tick')
+      setDate(new Date())
     }, 1000)
+
+    return () => {
+      clearInterval(intervalId)
+    }
 
   }, []);
 
-  const hours = time.getHours().toString().padStart(2, '0')
-  const minutes = time.getMinutes().toString().padStart(2, '0')
-  const seconds = time.getSeconds().toString().padStart(2, '0')
+  const hours = date.getHours().toString().padStart(2, '0')
+  const minutes = date.getMinutes().toString().padStart(2, '0')
+  const seconds = date.getSeconds().toString().padStart(2, '0')
 
   return (
-      <>
-        {hours}:{minutes}:{seconds}
-      </>
+      <div>
+        <span>{hours}</span>
+        :
+        <span>{minutes}</span>
+        :
+        <span>{seconds}</span>
+      </div>
   )
 }
