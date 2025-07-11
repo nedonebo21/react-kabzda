@@ -37,16 +37,19 @@ export const SimpleExample = () => {
   )
 }
 
-export const SetTimeoutExample = () => {
+export const SetIntervalExample = () => {
   const [counter, setCounter] = useState(1)
   const [fake, setFake] = useState(1)
   console.log('setTimeout example')
 
   useEffect(() => {
 
-    setInterval(() => {
+    const intervalId = setInterval(() => {
       setCounter((state) => state + 1)
     }, 1000)
+    return () => {
+      clearInterval(intervalId)
+    }
 
   }, []);
 
@@ -131,6 +134,57 @@ export const AnalogClockView = ({hours, minutes, seconds}: ClockViewPropsType) =
           <div className={`${s.dial} ${s.minutes}`} style={minutesStyle}></div>
           <div className={`${s.dial} ${s.hours}`} style={hoursStyle}></div>
         </div>
+      </div>
+  )
+}
+
+export const ResetEffectExample = () => {
+  const [counter, setCounter] = useState(1)
+  const incHandle = () => setCounter((prevCounter) => prevCounter + 1)
+  useEffect(() => {
+    console.log('effect' + counter)
+    return () => {
+      console.log('reset effect' + counter)
+    }
+  }, [counter]);
+  return (
+      <div>
+        Hello, counter {counter}
+        <button onClick={incHandle}>Click+</button>
+      </div>
+  )
+}
+export const KeysTrackerExample = () => {
+  const [text, setText] = useState('')
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      console.log(e.key)
+      setText((prevText) => prevText + e.key)
+    }
+    window.addEventListener('keypress', handler)
+    return () => {
+      window.removeEventListener('keypress', handler)
+    }
+  }, []);
+  return (
+      <div>
+        typed text: {text}
+      </div>
+  )
+}
+export const SetTimeoutExample = () => {
+  const [text, setText] = useState('')
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setText('3 seconds passed')
+    }, 3000)
+    return () => {
+      clearTimeout(timeoutId)
+    }
+  }, []);
+  return (
+      <div>
+        text: {text}
       </div>
   )
 }
